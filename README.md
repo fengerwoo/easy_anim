@@ -68,8 +68,8 @@ EasyTweenAnimation(
 ### example工程截图
 查看截图效果的对应源码：[example/lib/main.dart](example/lib/main.dart)
 
-<img src="doc/assets/demo1.gif" width="400" >
-<img src="doc/assets/demo2.gif" width="400" >
+<img src="doc/assets/demo1.gif" width="300" >
+<img src="doc/assets/demo2.gif" width="300" >
 
 
 ### 使用示例
