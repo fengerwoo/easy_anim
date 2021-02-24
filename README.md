@@ -68,7 +68,8 @@ EasyTweenAnimation(
 ### example工程截图
 查看截图效果的对应源码：[example/lib/main.dart](example/lib/main.dart)
 
-![alt-text-1](doc/assets/demo1.gif "title-1") ![alt-text-1](doc/assets/demo2.gif "title-1")
+<img src="doc/assets/demo1.gif" width="400" >
+<img src="doc/assets/demo2.gif" width="400" >
 
 
 ### 使用示例
@@ -121,3 +122,32 @@ EasyTweenAnimation(
 )
 
 ```
+
+### 参数说明
+
+#### EasyTweenAnimation 组件参数说明
+- [ animSequence: List\<EasyTweenAnimationItem> ] 动画分镜序列
+- [ duration: Duration ] 动画执行总时长
+- [ curve: Curve ] 动画执行曲线，默认线性
+- [ builder: Funtion ] 构建要使用动画的组件
+- [ onStatus: Funtion ] 监听动画执行状态回调
+- [ child: Widget ] 子组件
+- [ delay: Duration ] 延时时间，默认0秒立即执行
+- [ loop: bool ] 是否循环执行
+
+#### EasyTweenAnimationItem 组件参数说明
+
+- [ animatables: Map\<String, Animatable> ] 动画效果，该分镜时间段里的动画效果组
+	- Map 说明
+		- [ key : String tag ] 效果名，如 width
+		- [ value : Animatable animatable ] 动画效果，一般使用 Tween 或者 ColorTween
+- [ weight: double ] 分镜占动画执行总时长权重百分比(0-100)
+
+
+
+### 加入群聊
+扫码加我微信加入微信交流群（请备注：Flutter库easy_anim）
+
+<img src="doc/assets/wechat_qr.jpg" width="200" >
+
+##### 🤗 🤗 🤗 如果对您有帮助，请star
