@@ -33,7 +33,7 @@ dependencies:
 
 
 ### 一个极简使用示例
-```
+``` dart
 import 'package:easy_anim/easy_anim.dart';
 
 EasyTweenAnimation(
