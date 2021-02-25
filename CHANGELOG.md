@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [2.1.0] - 声明式描述动画组件发布
 
-* TODO: Describe initial release.
+* 发布到pub.dev
