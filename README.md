@@ -1,6 +1,6 @@
 # easy_anim
 
-💨🚀 用一种简单的方式声明式使用Flutter的动画 
+💨🚀 用一种简单的方式，声明式描述使用Flutter的动画 
 
 
 ## 前言
@@ -150,4 +150,4 @@ EasyTweenAnimation(
 
 <img src="doc/assets/wechat_qr.jpg" width="200" >
 
-##### 🤗 🤗 🤗 如果对您有帮助，请star
+#### 🤗 🤗 🤗 如果对您有帮助，请star
