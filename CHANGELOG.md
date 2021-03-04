@@ -1,3 +1,7 @@
-## [2.1.0] - 声明式描述动画组件发布
+## [2.1.0] - Declarative description animation component release
 
-* 发布到pub.dev
+* Publish to pub.dev
+
+## [2.1.1] - fix bug dispose
+
+* fix bug dispose

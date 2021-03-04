@@ -28,7 +28,7 @@
 ### 添加依赖
 ``` yaml
 dependencies:
-  easy_anim: ^2.1.0  
+  easy_anim: ^2.1.1
 ```
 
 
