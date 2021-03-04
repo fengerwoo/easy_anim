@@ -16,14 +16,14 @@ typedef EasyTweenAnimationOnStatus = Widget Function(AnimationStatus status, Ani
 class EasyTweenAnimation extends StatefulWidget{
 
 
-  List<EasyTweenAnimationItem> animSequence;
-  Duration duration;
-  Curve curve;
-  EasyTweenAnimationWidgetBuilder builder;
-  EasyTweenAnimationOnStatus onStatus;
-  Widget child;
-  Duration delay;
-  bool loop;
+  final List<EasyTweenAnimationItem> animSequence;
+  final Duration duration;
+  final Curve curve;
+  final EasyTweenAnimationWidgetBuilder builder;
+  final EasyTweenAnimationOnStatus onStatus;
+  final Widget child;
+  final Duration delay;
+  final bool loop;
 
 
   /// @Desc  : 创建一个动画组件，自维护controller，使用简单
@@ -127,7 +127,7 @@ class _EasyTweenAnimationState extends State<EasyTweenAnimation> with SingleTick
       }
     });
 
-    this.widget.animSequence = this.makeUpAnimSequence(this.widget.animSequence); // 补齐 各个分镜 未存在的效果
+    this.makeUpAnimSequence(this.widget.animSequence); // 补齐 各个分镜 未存在的效果
     _tagTweenSequenceItems = this.buildTagTweenSequenceItems(this.widget.animSequence); // 创建Tag 的 TweenSequenceItem 数组
 
     // 创建 各个Tag效果的 TweenSequence
@@ -178,7 +178,7 @@ class _EasyTweenAnimationState extends State<EasyTweenAnimation> with SingleTick
 
   /// @Desc  : 补齐[animSequence]各个分镜里缺失的动画效果，默认保持上一个
   /// @author: 枫儿
-  List<EasyTweenAnimationItem> makeUpAnimSequence(List<EasyTweenAnimationItem> animSequence){
+  makeUpAnimSequence(List<EasyTweenAnimationItem> animSequence){
     List<String> tags = this.getTags(animSequence);
 
     // 循环所有分镜
@@ -196,30 +196,28 @@ class _EasyTweenAnimationState extends State<EasyTweenAnimation> with SingleTick
       }
 
     }
-
-    return animSequence;
   }
 
 
   /// @Desc  : 寻找动画序列里某个节点前面最近一个存在该tag的节点，要是到第一个都没找到，就断言中断并警告
   /// @author: 枫儿
   Animatable findLastTag(List<EasyTweenAnimationItem> animSequence, int index, String tag){
-    Animatable animatable = null;
+    Animatable animate;
     for(int i=index; i>=0; i--){
       EasyTweenAnimationItem item = animSequence[i];
 
       if(item.existTag(tag)){ //不为空则为找到了
-        animatable = item.animatables[tag];
+        animate = item.animatables[tag];
         break;
       }
     }
 
     assert(
-      animatable != null,
+      animate != null,
       "EasyTweenAnimation 组件 animSequence 列表属性的第一个 EasyTweenAnimationItem 应该包含animSequence存在的所有效果作为默认值。 当前「${tag}」效果不存在，请在第一个EasyTweenAnimationItem内添加「${tag}」默认效果 \n\n"
       "The first EasyTweenAnimationItem in the animSequence list property of the EasyTweenAnimation component should contain all the effects that exist in the animSequence as default values. The current 「${tag}」 effect does not exist, please add the 「${tag}」 default effect in the first EasyTweenAnimationItem\n");
 
-    return animatable;
+    return animate;
   }
 
 
@@ -252,9 +250,10 @@ class _EasyTweenAnimationState extends State<EasyTweenAnimation> with SingleTick
 
   @override
   void dispose() {
-    super.dispose();
     // 组件销毁，释放 controller
     _animationController.dispose();
+
+    super.dispose();
   }
 
 }

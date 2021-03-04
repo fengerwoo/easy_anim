@@ -1,6 +1,6 @@
 name: easy_anim
-description: Simple and elegant way to use animation
-version: 2.1.0
+description: Declarative description uses Flutter animation. Develop complex animations in a simpler way
+version: 2.1.1
 author: fenger
 homepage: https://github.com/fengerwoo
 repository: https://github.com/fengerwoo/easy_anim
