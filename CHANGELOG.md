@@ -5,3 +5,7 @@
 ## [2.1.1] - fix bug dispose
 
 * fix bug dispose
+
+## [3.1.1] - Support null safety
+
+* Support null safety

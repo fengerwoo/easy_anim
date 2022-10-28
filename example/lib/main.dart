@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title!),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -83,9 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
               duration: Duration(seconds: 2),
-              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget child){
+              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget? child){
 
-                Animation width = animationMap['width'];
+                Animation width = animationMap['width']!;
 
                 return AnimatedBuilder(animation: curvedAnimation, builder: (context, child){
                       return Container(
@@ -115,9 +115,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
               duration: Duration(seconds: 2),
               delay: Duration(seconds: 3),
-              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget child){
+              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget? child){
 
-                Animation width = animationMap['width'];
+                Animation width = animationMap['width']!;
 
                 return AnimatedBuilder(animation: curvedAnimation, builder: (context, child){
                   return Container(
@@ -168,9 +168,9 @@ class _MyHomePageState extends State<MyHomePage> {
               duration: Duration(seconds: 2),
               loop: true, ///循环执行
               curve: Curves.bounceInOut,
-              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget child){
+              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget? child){
 
-                Animation width = animationMap['width'];
+                Animation width = animationMap['width']!;
 
                 return AnimatedBuilder(animation: curvedAnimation, builder: (context, child){
                   return Container(
@@ -227,10 +227,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
               duration: Duration(seconds: 2),
               loop: true, ///循环执行
-              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget child){
+              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget? child){
 
-                Animation width = animationMap['width'];
-                Animation color = animationMap['color'];
+                Animation width = animationMap['width']!;
+                Animation color = animationMap['color']!;
 
                 return AnimatedBuilder(animation: curvedAnimation, builder: (context, child){
                   return Container(
@@ -280,10 +280,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
               duration: Duration(seconds: 2),
               loop: true, ///循环执行
-              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget child){
+              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget? child){
 
-                Animation width = animationMap['width'];
-                Animation color = animationMap['color'];
+                Animation width = animationMap['width']!;
+                Animation color = animationMap['color']!;
 
                 return AnimatedBuilder(animation: curvedAnimation, builder: (context, child){
                   return Container(
@@ -348,13 +348,13 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
               duration: Duration(seconds: 2),
               loop: true, ///循环执行
-              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget child){
+              builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget? child){
 
-                Animation size = animationMap['size'];
-                Animation color = animationMap['color'];
-                Animation angle = animationMap['angle'];
-                Animation radius = animationMap['radius'];
-                Animation borderColor = animationMap['borderColor'];
+                Animation size = animationMap['size']!;
+                Animation color = animationMap['color']!;
+                Animation angle = animationMap['angle']!;
+                Animation radius = animationMap['radius']!;
+                Animation borderColor = animationMap['borderColor']!;
 
 
                 return AnimatedBuilder(animation: curvedAnimation, builder: (context, child){

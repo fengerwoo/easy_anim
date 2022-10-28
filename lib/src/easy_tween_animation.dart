@@ -1,7 +1,8 @@
 
+
 import 'package:flutter/material.dart';
 
-typedef EasyTweenAnimationWidgetBuilder = Widget Function(BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget child);
+typedef EasyTweenAnimationWidgetBuilder = Widget Function(BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget? child);
 typedef EasyTweenAnimationOnStatus = Widget Function(AnimationStatus status, AnimationController controller);
 
 
@@ -20,8 +21,8 @@ class EasyTweenAnimation extends StatefulWidget{
   final Duration duration;
   final Curve curve;
   final EasyTweenAnimationWidgetBuilder builder;
-  final EasyTweenAnimationOnStatus onStatus;
-  final Widget child;
+  final EasyTweenAnimationOnStatus? onStatus;
+  final Widget? child;
   final Duration delay;
   final bool loop;
 
@@ -89,11 +90,11 @@ class EasyTweenAnimation extends StatefulWidget{
   ///
   /// @author: 枫儿
   EasyTweenAnimation({
-    Key key,
-    @required this.animSequence,
-    @required this.duration,
+    Key? key,
+    required this.animSequence,
+    required this.duration,
     this.curve = Curves.linear,
-    @required this.builder,
+    required this.builder,
     this.onStatus,
     this.child,
     this.delay = Duration.zero,
@@ -107,9 +108,9 @@ class EasyTweenAnimation extends StatefulWidget{
 
 class _EasyTweenAnimationState extends State<EasyTweenAnimation> with SingleTickerProviderStateMixin{
 
-  AnimationController _animationController;
+  late AnimationController _animationController;
   Map<String, List<TweenSequenceItem>> _tagTweenSequenceItems = {};
-  CurvedAnimation _animation;
+  late CurvedAnimation _animation;
   Map<String, Animation> _animationMap = {};
 
   @override
@@ -123,7 +124,7 @@ class _EasyTweenAnimationState extends State<EasyTweenAnimation> with SingleTick
     _animation.addStatusListener((status) {
       // 回调状态
       if(this.widget.onStatus != null){
-        this.widget.onStatus(status, _animationController);
+        this.widget.onStatus!(status, _animationController);
       }
     });
 
@@ -168,7 +169,7 @@ class _EasyTweenAnimationState extends State<EasyTweenAnimation> with SingleTick
           }
 
           TweenSequenceItem tweenSequenceItem = TweenSequenceItem(tween: animatable, weight: clipItem.weight);
-          tagTweenSequenceItems[tag].add(tweenSequenceItem);
+          tagTweenSequenceItems[tag]!.add(tweenSequenceItem);
       });
     }
 
@@ -202,12 +203,12 @@ class _EasyTweenAnimationState extends State<EasyTweenAnimation> with SingleTick
   /// @Desc  : 寻找动画序列里某个节点前面最近一个存在该tag的节点，要是到第一个都没找到，就断言中断并警告
   /// @author: 枫儿
   Animatable findLastTag(List<EasyTweenAnimationItem> animSequence, int index, String tag){
-    Animatable animate;
+    Animatable? animate;
     for(int i=index; i>=0; i--){
       EasyTweenAnimationItem item = animSequence[i];
 
       if(item.existTag(tag)){ //不为空则为找到了
-        animate = item.animatables[tag];
+        animate = item.animatables[tag]!;
         break;
       }
     }
@@ -217,7 +218,7 @@ class _EasyTweenAnimationState extends State<EasyTweenAnimation> with SingleTick
       "EasyTweenAnimation 组件 animSequence 列表属性的第一个 EasyTweenAnimationItem 应该包含animSequence存在的所有效果作为默认值。 当前「${tag}」效果不存在，请在第一个EasyTweenAnimationItem内添加「${tag}」默认效果 \n\n"
       "The first EasyTweenAnimationItem in the animSequence list property of the EasyTweenAnimation component should contain all the effects that exist in the animSequence as default values. The current 「${tag}」 effect does not exist, please add the 「${tag}」 default effect in the first EasyTweenAnimationItem\n");
 
-    return animate;
+    return animate!;
   }
 
 
@@ -270,9 +271,9 @@ class EasyTweenAnimationItem{
   /// [animatables] 动画效果，该分镜时间段里的动画效果组
   /// [weight] 分镜占动画执行总时长权重百分比(0-100)
   EasyTweenAnimationItem({
-    Key key,
-    @required this.animatables,
-    @required this.weight,
+    Key? key,
+    required this.animatables,
+    required this.weight,
   });
 
 

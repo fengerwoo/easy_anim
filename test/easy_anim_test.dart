@@ -17,9 +17,9 @@ void main() {
         ),
       ],
       duration: Duration(seconds: 1),
-      builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget child){
+      builder: (BuildContext context, CurvedAnimation curvedAnimation, Map<String, Animation> animationMap, AnimationController animationController, Widget? child){
 
-        Animation width = animationMap['width'];
+        Animation width = animationMap['width']!;
 
         return AnimatedBuilder(animation: curvedAnimation, builder: (context, child){
           return Transform.rotate(
